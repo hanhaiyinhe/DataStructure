@@ -216,23 +216,21 @@ public class LinkBinaryTree<E> implements BinaryTreeInterface<E> {
 	private void postOrder1(BinaryNodeInterface<E> root) {
 		// TODO Auto-generated method stub
 		StackInterface<BinaryNode> stack=new LinkStack<BinaryNode>();
-		if(root!=null){
-			BinaryNode bn=(BinaryNode)root;
-			stack.push(bn);
-			while(!stack.isEmpty()){
-				//stack.push(bn);
-				if(bn.hasLeftChild()){
-					if(bn.hasRightChild())
-						stack.push(((BinaryNode)bn.getRightChild()));
-					bn=(BinaryNode)bn.getLeftChild();
-				}else if(!bn.hasLeftChild()&&bn.hasRightChild()){
-					stack.push(bn);
-				}
-				else{
-					bn=stack.pop();
-					System.out.print(bn.getData()+" ");
-					bn=stack.peek();
-				}
+		if(root==null) return;
+		BinaryNode h=(BinaryNode)root;
+		BinaryNode c=null;
+		stack.push(h);
+		while(!stack.isEmpty()){
+			c=stack.peek();
+			if(c.hasLeftChild() && h!=c.getLeftChild() && h!=c.getRightChild()){
+				stack.push((BinaryNode)c.getLeftChild());
+			}
+			else if(c.hasRightChild() && h!=c.getRightChild()){
+				stack.push((BinaryNode)c.getRightChild());
+			}
+			else{
+				System.out.print(stack.pop().getData()+" ");
+				h=c;
 			}
 		}
 		System.out.println();
