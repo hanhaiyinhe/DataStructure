@@ -11,6 +11,7 @@ import com.queue.LinkLoopDeque;
 import com.queue.LinkQueue;
 import com.queue.QueueInterface;
 import com.queue.VectorQueue;
+import com.sort.SortArray;
 import com.stack.ArrayStack;
 import com.stack.LinkStack;
 import com.stack.StackInterface;
@@ -24,7 +25,8 @@ public class test {
 		//testStack();
 		//testQueue();
 		//testDeque();
-		testLinkBinaryTree();
+		//testLinkBinaryTree();
+		testSort();
 	}
 	
 	public static void testList(){
@@ -163,5 +165,29 @@ public class test {
 		a.printTree(4);
 		a.printTree(5);
 		a.printTree(6);
+	}
+	
+	public static void testSort(){
+		SortArray<Integer> sa=new SortArray<Integer>();
+		Integer[] array1=new Integer[]{38,97,65,76,13,27,49};
+		sa.selectionSort(array1);
+		
+		Integer[] array2=new Integer[]{38,65,76,97,13,27,49};
+		sa.BubbleSort(array2);
+
+		Integer[] array3=new Integer[]{38,65,97,76,13,27,49};
+		sa.insertSort(array3);
+		
+		Integer[] array4=new Integer[]{38,65,97,76,13,27,49};
+		sa.quickSort(array4);
+		
+		Integer[] array5=new Integer[]{38,65,97,76,13,27,49};
+		sa.mergeSort(array5);
+		
+		Integer[] array6=new Integer[]{10,16,11,4,15,3,9,6,1,17,8,12,7};
+		sa.shellSort(array6);
+		
+		Integer[] array7=new Integer[]{87,45,78,32,17,65,53,9,63};
+		sa.maxHeapSort(array7);
 	}
 }
